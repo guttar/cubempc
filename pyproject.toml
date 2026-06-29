@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cubempc"
+version = "0.1.0"
+description = "CUBE layered MPC"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+numpy = ["numpy>=1.26"]
+dev = ["pytest>=8.0", "numpy>=1.26"]
+
+[project.scripts]
+cubempc-bench-mpc = "cubempc.benchmarks.run_mpc:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cubempc*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
